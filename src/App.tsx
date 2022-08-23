@@ -1,8 +1,9 @@
 import { observer } from "mobx-react";
 import * as React from "react";
 import "./App.css";
-import TrafficLight from "./TrafficLight";
-import Store from "./TrafficLight/Store";
+import Traffic from "./Traffic";
+import Store from "./Traffic/Store";
+import Reactions from "./Traffic/Store/Reactions";
 
 interface Props {}
 
@@ -10,7 +11,12 @@ class App extends React.Component<Props> {
   store = new Store();
 
   render() {
-    return <TrafficLight store={this.store} />;
+    return (
+      <>
+        <Traffic store={this.store} />
+        <Reactions store={this.store} fireImmediately={true} />
+      </>
+    );
   }
 }
 
