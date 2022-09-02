@@ -1,0 +1,89 @@
+.turnSignalBackground {
+  height: 210px;
+  width: 220px;
+  background-color: #ffd800;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 100px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.turnSignal {
+  fill: black
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .turnSignal {
+    animation: turnSignal-signal infinite 1.5s linear;
+  }
+}
+
+@keyframes turnSignal-signal {
+  50%  {fill: #f7b500;}
+}
+
+.container {
+  height: 630px;
+  width: 220px;
+  background-color: #ffd800;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 100px;
+  border:1px solid black
+}
+
+.lightBase {
+  height: 200px;
+  width: 200px;
+  background-Color: black;
+  border-Radius: 50%;
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.red {
+  background-Color: red;
+  fill: red;
+}
+
+.yellow {
+  background-Color: #f7b500;
+  fill: #f7b500;
+}
+
+.green {
+  background-Color: green;
+  fill: green;
+}
+
+.blinker {
+  pointer-events: none;
+  background-color: black;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .blinker {
+    animation: blinker-blink infinite 1.5s linear;
+  }
+}
+
+@keyframes blinker-blink {
+  50%  {background-color: red;}
+}
