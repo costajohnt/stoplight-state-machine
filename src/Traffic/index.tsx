@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import * as React from "react";
-import Arrow from "../LeftTurn/Arrow";
+import Arrow from "./Arrow";
 import Light from "./Light";
 import Store from "./Store";
 import "./style.css";
