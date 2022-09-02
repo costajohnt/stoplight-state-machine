@@ -2,7 +2,7 @@
 
 ## About
 
-Illustrates state machine implementation in React unsing TypeScript, Functional Programming techniques, and Domain Driven Design.
+Illustrates state machine implementation in React using TypeScript, Functional Programming techniques, and Domain Driven Design.
 
 For more info see: [CooperTS](https://github.com/execonline-inc/CooperTS) and [Festive Possum](https://github.com/kofno/festive-possum) repositories.
 ## Setup
@@ -12,3 +12,4 @@ For more info see: [CooperTS](https://github.com/execonline-inc/CooperTS) and [F
 - `yarn install`
 - `yarn start`
 
+![GIF](https://j.gifs.com/gpNkr6.gif)
