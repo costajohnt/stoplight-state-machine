@@ -1,19 +1,16 @@
 import { observer } from "mobx-react";
 import * as React from "react";
-import Store from "./Store";
-import "./style.css";
+import { Light } from "./Store/Types";
 
 export interface Props {
-  store: Store;
+  light: Light;
 }
-const Light: React.FC<Props> = ({ store }) => {
-  return (
-    <div className="container">
-      <div className={store.state.light.top.style} />
-      <div className={store.state.light.middle.style} />
-      <div className={store.state.light.bottom.style} />
-    </div>
-  );
-};
+const Light: React.FC<Props> = ({ light }) => (
+  <div className="container">
+    <div className={light.red.style} />
+    <div className={light.yellow.style} />
+    <div className={light.green.style} />
+  </div>
+);
 
 export default observer(Light);

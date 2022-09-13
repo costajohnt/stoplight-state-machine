@@ -9,7 +9,7 @@ export interface Props {
 const ThrowErrorButton: React.FC<Props> = ({ store }) => (
   <div style={{ display: "inline-flex", paddingLeft: "20%" }}>
     <button type="button" onClick={store.systemError}>
-      Monkey Wrench
+      Throw Wrench
     </button>
   </div>
 );

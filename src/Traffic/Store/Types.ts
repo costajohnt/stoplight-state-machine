@@ -1,77 +1,93 @@
 import { MissingVarError } from "@execonline-inc/environment";
 
-interface FlashingYellow {
-  kind: "flashing-yellow";
+interface Flashing {
+  status: "flashing";
+}
+
+export type Light = GreenLight | YellowLight | RedLight | FlashingRedLight;
+
+export type Arrow =
+  | FlashingYellow
+  | ArrowYellow
+  | ArrowRed
+  | ArrowOff
+  | ArrowGreen;
+interface FlashingYellow extends Flashing {
+  color: "yellow";
   style: "turnSignal";
 }
 
-interface FlashingRed {
-  kind: "flashing-red";
+interface FlashingRed extends Flashing {
   style: "blinker";
 }
 
-interface ArrowOff {
-  kind: "off";
+interface Off {
+  status: "off";
+}
+interface ArrowOff extends Off {
   style: "black";
 }
 
-interface LightOff {
-  kind: "off";
+interface LightOff extends Off {
   style: "lightBase";
 }
 
-interface LightGreen {
-  kind: "green";
+interface On {
+  status: "on";
+}
+
+interface Green extends On {
   style: "lightBase green";
 }
 
-interface LightYellow {
-  kind: "yellow";
+interface Yellow extends On {
   style: "lightBase yellow";
 }
 
+interface Red extends On {
+  style: "lightBase red";
+}
+
 interface ArrowGreen {
-  kind: "green";
+  color: "green";
+  status: "on";
   style: "green";
 }
 
 interface ArrowYellow {
-  kind: "yellow";
+  color: "yellow";
+  status: "on";
   style: "yellow";
 }
 
 interface ArrowRed {
-  kind: "red";
+  color: "red";
+  status: "on";
   style: "red";
 }
 
-interface LightRed {
-  kind: "red";
-  style: "lightBase red";
-}
-
 interface GreenLight {
-  top: LightOff;
-  middle: LightOff;
-  bottom: LightGreen;
+  red: LightOff;
+  yellow: LightOff;
+  green: Green;
 }
 
 interface YellowLight {
-  top: LightOff;
-  middle: LightYellow;
-  bottom: LightOff;
+  red: LightOff;
+  yellow: Yellow;
+  green: LightOff;
 }
 
 interface RedLight {
-  top: LightRed;
-  middle: LightOff;
-  bottom: LightOff;
+  red: Red;
+  yellow: LightOff;
+  green: LightOff;
 }
 
 interface FlashingRedLight {
-  top: FlashingRed;
-  middle: LightOff;
-  bottom: LightOff;
+  red: FlashingRed;
+  yellow: LightOff;
+  green: LightOff;
 }
 interface PriorityStraight {
   kind: "priority-straight";
@@ -107,8 +123,6 @@ type WarningLeft = {
 
 export type ConfigError = MissingVarError | string;
 
-export type TimeoutTransition = "warning" | "prohibiting";
-
 export type State =
   | PriorityStraight
   | Warning
@@ -120,20 +134,21 @@ export type State =
 export const priorityStraight = (): PriorityStraight => ({
   kind: "priority-straight",
   arrow: {
-    kind: "flashing-yellow",
+    color: "yellow",
+    status: "flashing",
     style: "turnSignal",
   },
   light: {
-    top: {
-      kind: "off",
+    red: {
+      status: "off",
       style: "lightBase",
     },
-    middle: {
-      kind: "off",
+    yellow: {
+      status: "off",
       style: "lightBase",
     },
-    bottom: {
-      kind: "green",
+    green: {
+      status: "on",
       style: "lightBase green",
     },
   },
@@ -141,20 +156,21 @@ export const priorityStraight = (): PriorityStraight => ({
 export const warning = (): Warning => ({
   kind: "warning",
   arrow: {
-    kind: "yellow",
+    color: "yellow",
+    status: "on",
     style: "yellow",
   },
   light: {
-    top: {
-      kind: "off",
+    red: {
+      status: "off",
       style: "lightBase",
     },
-    middle: {
-      kind: "yellow",
+    yellow: {
+      status: "on",
       style: "lightBase yellow",
     },
-    bottom: {
-      kind: "off",
+    green: {
+      status: "off",
       style: "lightBase",
     },
   },
@@ -162,20 +178,21 @@ export const warning = (): Warning => ({
 export const prohibiting = (): Prohibiting => ({
   kind: "prohibiting",
   arrow: {
-    kind: "red",
+    color: "red",
+    status: "on",
     style: "red",
   },
   light: {
-    top: {
-      kind: "red",
+    red: {
+      status: "on",
       style: "lightBase red",
     },
-    middle: {
-      kind: "off",
+    yellow: {
+      status: "off",
       style: "lightBase",
     },
-    bottom: {
-      kind: "off",
+    green: {
+      status: "off",
       style: "lightBase",
     },
   },
@@ -184,20 +201,21 @@ export const prohibiting = (): Prohibiting => ({
 export const priorityLeft = (): PriorityLeft => ({
   kind: "priority-left",
   arrow: {
-    kind: "green",
+    color: "green",
+    status: "on",
     style: "green",
   },
   light: {
-    top: {
-      kind: "red",
+    red: {
+      status: "on",
       style: "lightBase red",
     },
-    middle: {
-      kind: "off",
+    yellow: {
+      status: "off",
       style: "lightBase",
     },
-    bottom: {
-      kind: "off",
+    green: {
+      status: "off",
       style: "lightBase",
     },
   },
@@ -206,20 +224,20 @@ export const priorityLeft = (): PriorityLeft => ({
 export const systemError = (): SystemError => ({
   kind: "system-error",
   arrow: {
-    kind: "off",
+    status: "off",
     style: "black",
   },
   light: {
-    top: {
-      kind: "flashing-red",
+    red: {
+      status: "flashing",
       style: "blinker",
     },
-    middle: {
-      kind: "off",
+    yellow: {
+      status: "off",
       style: "lightBase",
     },
-    bottom: {
-      kind: "off",
+    green: {
+      status: "off",
       style: "lightBase",
     },
   },
@@ -228,20 +246,21 @@ export const systemError = (): SystemError => ({
 export const warningLeft = (): WarningLeft => ({
   kind: "warning-left",
   arrow: {
-    kind: "yellow",
+    color: "yellow",
+    status: "on",
     style: "yellow",
   },
   light: {
-    top: {
-      kind: "red",
+    red: {
+      status: "on",
       style: "lightBase red",
     },
-    middle: {
-      kind: "off",
+    yellow: {
+      status: "off",
       style: "lightBase",
     },
-    bottom: {
-      kind: "off",
+    green: {
+      status: "off",
       style: "lightBase",
     },
   },
