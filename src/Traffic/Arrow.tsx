@@ -1,9 +1,9 @@
 import { observer } from "mobx-react";
 import * as React from "react";
-import { Arrow } from "./Store/Types";
+import { ArrowUnion } from "./Store/Types";
 
 interface Props {
-  arrow: Arrow;
+  arrow: ArrowUnion;
 }
 
 const path =

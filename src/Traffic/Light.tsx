@@ -1,9 +1,9 @@
 import { observer } from "mobx-react";
 import * as React from "react";
-import { Light } from "./Store/Types";
+import { LightUnion } from "./Store/Types";
 
 export interface Props {
-  light: Light;
+  light: LightUnion;
 }
 const Light: React.FC<Props> = ({ light }) => (
   <div className="container">

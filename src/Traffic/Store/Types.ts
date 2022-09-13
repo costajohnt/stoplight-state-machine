@@ -4,14 +4,15 @@ interface Flashing {
   status: "flashing";
 }
 
-export type Light = GreenLight | YellowLight | RedLight | FlashingRedLight;
+export type LightUnion = GreenLight | YellowLight | RedLight | FlashingRedLight;
 
-export type Arrow =
+export type ArrowUnion =
   | FlashingYellow
   | ArrowYellow
   | ArrowRed
   | ArrowOff
   | ArrowGreen;
+
 interface FlashingYellow extends Flashing {
   color: "yellow";
   style: "turnSignal";
