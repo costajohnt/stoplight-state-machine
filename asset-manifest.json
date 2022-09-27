@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/stoplight-state-machine/static/css/main.c7a25fc8.chunk.css",
+    "main.js": "/stoplight-state-machine/static/js/main.d99924fb.chunk.js",
+    "main.js.map": "/stoplight-state-machine/static/js/main.d99924fb.chunk.js.map",
+    "runtime-main.js": "/stoplight-state-machine/static/js/runtime-main.fd57c409.js",
+    "runtime-main.js.map": "/stoplight-state-machine/static/js/runtime-main.fd57c409.js.map",
+    "static/js/2.954b56d5.chunk.js": "/stoplight-state-machine/static/js/2.954b56d5.chunk.js",
+    "static/js/2.954b56d5.chunk.js.map": "/stoplight-state-machine/static/js/2.954b56d5.chunk.js.map",
+    "index.html": "/stoplight-state-machine/index.html",
+    "precache-manifest.0df9ad799aab1c81dd116fea7b5771bb.js": "/stoplight-state-machine/precache-manifest.0df9ad799aab1c81dd116fea7b5771bb.js",
+    "service-worker.js": "/stoplight-state-machine/service-worker.js",
+    "static/css/main.c7a25fc8.chunk.css.map": "/stoplight-state-machine/static/css/main.c7a25fc8.chunk.css.map",
+    "static/js/2.954b56d5.chunk.js.LICENSE.txt": "/stoplight-state-machine/static/js/2.954b56d5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fd57c409.js",
+    "static/js/2.954b56d5.chunk.js",
+    "static/css/main.c7a25fc8.chunk.css",
+    "static/js/main.d99924fb.chunk.js"
+  ]
+}
