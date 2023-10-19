@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/stoplight-state-machine/precache-manifest.0df9ad799aab1c81dd116fea7b5771bb.js"
+  "/stoplight-state-machine/precache-manifest.738949e9d8df645e0a430adc8b2c781a.js"
 );
 
 self.addEventListener('message', (event) => {
